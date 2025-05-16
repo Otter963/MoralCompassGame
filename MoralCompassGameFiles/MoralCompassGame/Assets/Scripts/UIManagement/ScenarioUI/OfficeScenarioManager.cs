@@ -13,18 +13,24 @@ public class OfficeScenarioManager : MonoBehaviour
     public void OfficeChoiceOne()
     {
         defaultCompassSprite.SetActive(false);
+        middleCompassSprite.SetActive(false);
+        goodCompassSprite.SetActive(false);
         badCompassSprite.SetActive(true);
     }
 
     public void OfficeChoiceTwo()
     {
         defaultCompassSprite.SetActive(false);
+        badCompassSprite.SetActive(false);
+        goodCompassSprite.SetActive(false);
         middleCompassSprite.SetActive(true);
     }
 
     public void OfficeChoiceThree()
     {
         defaultCompassSprite.SetActive(false);
+        badCompassSprite.SetActive(false);
+        middleCompassSprite.SetActive(false);
         goodCompassSprite.SetActive(true);
     }
 }
