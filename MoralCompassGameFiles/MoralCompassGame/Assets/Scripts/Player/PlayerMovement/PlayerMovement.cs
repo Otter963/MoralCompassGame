@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /*Reference:
 Title: FIRST PERSON MOVEMENT in 10 MINUTES - Unity Tutorial 
@@ -6,6 +8,14 @@ Author: Dave / GameDevelopment
 Date: 2022, February 7
 Code version: 6000.0.42f1
 Availability: https://www.youtube.com/watch?v=f473C43s8nE
+*/
+
+/*Reference:
+Title: Sprinting | Simple Character Controller in Unity | Part 9 [Video]
+Author: chonk
+Date: 2023, September 16
+Code version: 6000.0.42f1
+Availability: https://www.youtube.com/watch?v=CRt4XvXAYrU
 */
 
 public class PlayerMovement : MonoBehaviour
@@ -28,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody playerRB;
+
+    [Header("Sprinting")]
+    [SerializeField] private Movement movement;
 
     private void Start()
     {
@@ -68,10 +81,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        //applying current speed with sprinting
+        var targetSpeed = movement.isSprinting ? movement.speed * movement.multiplier : movement.speed;
+        movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, targetSpeed, movement.acceleration * Time.deltaTime);
+
         //calculating movement direction to move in direction looking only
         moveDirection = orientation.forward * vertInput + orientation.right * horInput;
 
-        playerRB.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        playerRB.AddForce(moveDirection.normalized * movement.currentSpeed * moveSpeed * 10f, ForceMode.Force);
     }
 
     private void SpeedControl()
@@ -85,4 +102,21 @@ public class PlayerMovement : MonoBehaviour
             playerRB.linearVelocity = new Vector3(limitedVelocity.x, playerRB.linearVelocity.y, limitedVelocity.z);
         }
     }
+
+    public void Sprint(InputAction.CallbackContext context)
+    {
+        movement.isSprinting = context.started || context.performed;
+    }
+}
+
+//the sprinting stuff
+[Serializable]
+public struct Movement
+{
+    public float speed;
+    public float multiplier;
+    public float acceleration;
+
+    [HideInInspector] public bool isSprinting;
+    [HideInInspector] public float currentSpeed;
 }

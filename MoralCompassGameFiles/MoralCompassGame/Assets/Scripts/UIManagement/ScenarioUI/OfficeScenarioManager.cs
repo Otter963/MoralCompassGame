@@ -9,6 +9,8 @@ public class OfficeScenarioManager : MonoBehaviour
     [SerializeField] private GameObject badCompassSprite;
     [SerializeField] private GameObject middleCompassSprite;
     [SerializeField] private GameObject goodCompassSprite;
+    [SerializeField] private OfficeScenario officeScenario;
+    [SerializeField] private GameObject officeScenarioCanvas;
 
     public void OfficeChoiceOne()
     {
@@ -16,6 +18,8 @@ public class OfficeScenarioManager : MonoBehaviour
         middleCompassSprite.SetActive(false);
         goodCompassSprite.SetActive(false);
         badCompassSprite.SetActive(true);
+        officeScenario.isOfficeScenarioActive = false;
+        officeScenarioCanvas.SetActive(false);
     }
 
     public void OfficeChoiceTwo()
@@ -24,6 +28,7 @@ public class OfficeScenarioManager : MonoBehaviour
         badCompassSprite.SetActive(false);
         goodCompassSprite.SetActive(false);
         middleCompassSprite.SetActive(true);
+        officeScenarioCanvas.SetActive(false);
     }
 
     public void OfficeChoiceThree()
@@ -32,5 +37,6 @@ public class OfficeScenarioManager : MonoBehaviour
         badCompassSprite.SetActive(false);
         middleCompassSprite.SetActive(false);
         goodCompassSprite.SetActive(true);
+        officeScenarioCanvas.SetActive(false);
     }
 }

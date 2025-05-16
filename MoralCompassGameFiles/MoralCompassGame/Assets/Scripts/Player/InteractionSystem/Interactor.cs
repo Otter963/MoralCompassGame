@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,14 +19,19 @@ public class Interactor : MonoBehaviour
     //getting the office scenario script reference
     [SerializeField] private OfficeScenario officeScenario;
 
+    //getting the office scenario manager script reference to change text corresponding to choice
+    [SerializeField] private OfficeScenarioManager officeScenarioManager;
+
     //getting the player as a game object
     [SerializeField] private PlayerMovement playerMovement;
 
     //getting the player camera script
     [SerializeField] private PlayerCamera playerCamera;
 
-    //the scenario canvas
-    [SerializeField] private GameObject scenarioCanvas;
+    [Header("Office Scenario")]
+
+    //the office scenario canvas
+    [SerializeField] private GameObject officeScenarioCanvas;
 
     //getting the interact text game object via the canvas in the game
     [SerializeField] private GameObject interactText;
@@ -37,6 +43,16 @@ public class Interactor : MonoBehaviour
     private void Update()
     {
         numFound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionPointRadius, colliders, interactableMask);
+
+        if (officeScenario.isOfficeScenarioActive == false)
+        {
+            officeScenarioCanvas.SetActive(false);
+            interactText.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            playerCamera.enabled = true;
+            playerMovement.enabled = true;
+        }
 
         //if we've found objects to interact with
         if (numFound > 0)
@@ -59,22 +75,15 @@ public class Interactor : MonoBehaviour
                 if (officeScenario.isOfficeScenarioActive == true)
                 {
                     //for the CPA, this is just a canvas being set to true for now with buttons which will do specific things
-                    scenarioCanvas.SetActive(true);
+                    officeScenarioCanvas.SetActive(true);
                     interactText.SetActive(false);
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
                     playerCamera.enabled = false;
                     playerMovement.enabled = false;
                 }
-                else if (officeScenario.isOfficeScenarioActive == false)
-                {
-                    scenarioCanvas.SetActive(false);
-                    interactText.SetActive(true);
-                    Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
-                    playerCamera.enabled = true;
-                    playerMovement.enabled = true;
-                }
+                //where else if statement would go
+
             }
         }//the below will be if the player is no longer in the radius of an interactable
         else
