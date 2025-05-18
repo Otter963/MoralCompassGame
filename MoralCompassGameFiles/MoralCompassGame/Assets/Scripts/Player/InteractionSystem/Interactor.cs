@@ -36,6 +36,8 @@ public class Interactor : MonoBehaviour
     //getting the interact text game object via the canvas in the game
     [SerializeField] private GameObject interactText;
 
+
+
     private readonly Collider[] colliders = new Collider[3];
     //storing number of colliders found from the layermask
     [SerializeField] private int numFound;
@@ -44,6 +46,9 @@ public class Interactor : MonoBehaviour
     {
         numFound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionPointRadius, colliders, interactableMask);
 
+        //office scenario stuff:
+
+        
         if (officeScenario.isOfficeScenarioActive == false)
         {
             officeScenarioCanvas.SetActive(false);
@@ -53,6 +58,8 @@ public class Interactor : MonoBehaviour
             playerCamera.enabled = true;
             playerMovement.enabled = true;
         }
+
+
 
         //if we've found objects to interact with
         if (numFound > 0)
@@ -71,10 +78,12 @@ public class Interactor : MonoBehaviour
 
                 //the below is for the office scenario and can be implemented for every other scenario once added for ME2
 
+                //office scenario:
+
                 //getting the office scenario bool if it's true to make sure the player script gets set to inactive so player cannot move during dialogue
+
                 if (officeScenario.isOfficeScenarioActive == true)
                 {
-                    //for the CPA, this is just a canvas being set to true for now with buttons which will do specific things
                     officeScenarioCanvas.SetActive(true);
                     interactText.SetActive(false);
                     Cursor.lockState = CursorLockMode.None;
@@ -82,7 +91,15 @@ public class Interactor : MonoBehaviour
                     playerCamera.enabled = false;
                     playerMovement.enabled = false;
                 }
-                //where else if statement would go
+                else if(officeScenario.isOfficeScenarioActive == false)
+                {
+                    officeScenarioCanvas.SetActive(false);
+                    interactText.SetActive(true);
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    playerCamera.enabled = true;
+                    playerMovement.enabled = true;
+                }
 
             }
         }//the below will be if the player is no longer in the radius of an interactable

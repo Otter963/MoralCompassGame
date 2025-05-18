@@ -1,11 +1,9 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
-public class OfficeScenario : MonoBehaviour, IInteractorInterface
+public class CoffeeScenario : MonoBehaviour
 {
     [SerializeField] private string prompt;
-    public bool isOfficeScenarioActive = false;
+    public bool isCoffeeScenarioActive = false;
     [SerializeField] private GameObject playerDefaultCompassSprite;
 
     //public string InteractionPrompt { get => prompt; }
@@ -13,9 +11,9 @@ public class OfficeScenario : MonoBehaviour, IInteractorInterface
     public bool Interact(Interactor interactor)
     {
         //Below is where logic can be put with WHAT you want the object to do. For example, with a chest to display the inventory menu
-        isOfficeScenarioActive = true;
+        isCoffeeScenarioActive = true;
         playerDefaultCompassSprite.SetActive(true);
-        Debug.Log("Beginning Office Scenario");
+        Debug.Log("Beginning Coffee Scenario");
         return true;
     }
 }
