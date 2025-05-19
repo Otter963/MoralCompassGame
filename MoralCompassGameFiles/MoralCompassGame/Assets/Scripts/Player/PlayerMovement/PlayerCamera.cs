@@ -20,6 +20,8 @@ public class PlayerCamera : MonoBehaviour
     float xRotation;
     float yRotation;
 
+    [SerializeField] private PauseMenuScript pauseMenuScript;
+
     private void Start()
     {
         //makes sure the cursor doesn't show up as the player plays
@@ -30,6 +32,19 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
+        //if the pause menu is active
+
+        if (pauseMenuScript.isPaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
         //getting mouse input:
 
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;

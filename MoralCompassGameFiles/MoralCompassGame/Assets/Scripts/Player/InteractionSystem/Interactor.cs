@@ -16,6 +16,9 @@ public class Interactor : MonoBehaviour
     [SerializeField] private float interactionPointRadius = 0.5f;
     [SerializeField] private LayerMask interactableMask;
 
+    //getting the player UI canvas
+    [SerializeField] private GameObject playerUICanvas;
+
     //getting the office scenario script reference
     [SerializeField] private OfficeScenario officeScenario;
 
@@ -51,6 +54,7 @@ public class Interactor : MonoBehaviour
         
         if (officeScenario.isOfficeScenarioActive == false)
         {
+            playerUICanvas.SetActive(true);
             officeScenarioCanvas.SetActive(false);
             interactText.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
@@ -84,6 +88,7 @@ public class Interactor : MonoBehaviour
 
                 if (officeScenario.isOfficeScenarioActive == true)
                 {
+                    interactText.SetActive(false);
                     officeScenarioCanvas.SetActive(true);
                     interactText.SetActive(false);
                     Cursor.lockState = CursorLockMode.None;
@@ -93,6 +98,7 @@ public class Interactor : MonoBehaviour
                 }
                 else if(officeScenario.isOfficeScenarioActive == false)
                 {
+                    playerUICanvas.SetActive(true);
                     officeScenarioCanvas.SetActive(false);
                     interactText.SetActive(true);
                     Cursor.lockState = CursorLockMode.Locked;
