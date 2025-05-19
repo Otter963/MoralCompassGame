@@ -12,6 +12,8 @@ public class PauseMenuScript : MonoBehaviour
 
     [SerializeField] private PlayerCamera playerCamera;
 
+    [SerializeField] private PlayerMovement playerMovement;
+
     // Update is called once per frame
     void Update()
     {
@@ -19,11 +21,13 @@ public class PauseMenuScript : MonoBehaviour
         {
             if (isPaused)
             {
+                playerMovement.enabled = true;
                 playerCamera.enabled = true;
                 ResumeGame();
             }
             else
             {
+                playerMovement.enabled = false;
                 playerCamera.enabled = false;
                 PauseGame();
             }
@@ -48,6 +52,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void LoadMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 
@@ -59,5 +64,10 @@ public class PauseMenuScript : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void OptionsMenu()
+    {
+
     }
 }

@@ -39,8 +39,6 @@ public class Interactor : MonoBehaviour
     //getting the interact text game object via the canvas in the game
     [SerializeField] private GameObject interactText;
 
-
-
     private readonly Collider[] colliders = new Collider[3];
     //storing number of colliders found from the layermask
     [SerializeField] private int numFound;
@@ -51,9 +49,9 @@ public class Interactor : MonoBehaviour
 
         //office scenario stuff:
 
-        
         if (officeScenario.isOfficeScenarioActive == false)
         {
+            Time.timeScale = 1f;
             playerUICanvas.SetActive(true);
             officeScenarioCanvas.SetActive(false);
             interactText.SetActive(true);
@@ -62,8 +60,6 @@ public class Interactor : MonoBehaviour
             playerCamera.enabled = true;
             playerMovement.enabled = true;
         }
-
-
 
         //if we've found objects to interact with
         if (numFound > 0)
@@ -86,6 +82,7 @@ public class Interactor : MonoBehaviour
 
                 //getting the office scenario bool if it's true to make sure the player script gets set to inactive so player cannot move during dialogue
 
+                
                 if (officeScenario.isOfficeScenarioActive == true)
                 {
                     interactText.SetActive(false);
@@ -106,7 +103,6 @@ public class Interactor : MonoBehaviour
                     playerCamera.enabled = true;
                     playerMovement.enabled = true;
                 }
-
             }
         }//the below will be if the player is no longer in the radius of an interactable
         else

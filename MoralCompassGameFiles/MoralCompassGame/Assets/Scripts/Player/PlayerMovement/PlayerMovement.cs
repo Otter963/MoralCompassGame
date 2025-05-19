@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Sprinting")]
     [SerializeField] private Movement movement;
 
+    [SerializeField] private PauseMenuScript pauseMenuScript;
+
     private void Start()
     {
         playerRB = GetComponent<Rigidbody>();
@@ -54,8 +56,15 @@ public class PlayerMovement : MonoBehaviour
         //ground checking
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
-        PlayerInput();
-        SpeedControl();
+        if (pauseMenuScript.isPaused == true)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            PlayerInput();
+            SpeedControl();
+        }
 
         //applying drag
         if (isGrounded )
