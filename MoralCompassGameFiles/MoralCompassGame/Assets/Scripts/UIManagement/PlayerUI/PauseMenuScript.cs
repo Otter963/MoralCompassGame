@@ -2,6 +2,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*Reference:
+Title: PAUSE MENU in unity [Video]
+Author: Brackeys
+Date: 2017, December 20
+Code version: 6000.0.42f1
+Availability: https://www.youtube.com/watch?v=JivuXdrIHK0
+*/
+
 public class PauseMenuScript : MonoBehaviour
 {
     public bool isPaused = false;
