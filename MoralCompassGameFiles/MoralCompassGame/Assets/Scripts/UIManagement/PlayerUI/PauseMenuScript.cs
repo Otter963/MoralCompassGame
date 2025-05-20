@@ -14,6 +14,11 @@ public class PauseMenuScript : MonoBehaviour
 
     [SerializeField] private PlayerMovement playerMovement;
 
+    private void Start()
+    {
+        pauseMenuCanvas.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {

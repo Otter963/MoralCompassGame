@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /*Reference:
 Title: FIRST PERSON MOVEMENT in 10 MINUTES - Unity Tutorial 
@@ -13,8 +12,6 @@ Availability: https://www.youtube.com/watch?v=f473C43s8nE
 
 public class PlayerCamera : MonoBehaviour
 {
-    public Slider sensitivitySlider;
-    public float mouseSensitivity = 100f;
     public float sensX;
     public float sensY;
 
@@ -27,12 +24,6 @@ public class PlayerCamera : MonoBehaviour
 
     private void Start()
     {
-        //setting the sensitivity of the mouse according to slider:
-
-        mouseSensitivity = PlayerPrefs.GetFloat("currentSensitivity", 100);
-
-        sensitivitySlider.value = sensX * sensY / 10;
-
         //makes sure the cursor doesn't show up as the player plays
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -71,10 +62,5 @@ public class PlayerCamera : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         playerOrientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
-    }
-
-    public void AdjustSpeed(float newSpeed)
-    {
-        mouseSensitivity = newSpeed * 10;
     }
 }
