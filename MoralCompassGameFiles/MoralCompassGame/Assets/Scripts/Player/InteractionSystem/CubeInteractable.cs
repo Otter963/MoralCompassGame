@@ -8,22 +8,23 @@ Code version: 6000.0.42f1
 Availability: https://www.youtube.com/watch?v=LdoImzaY6M4
 */
 
-public class NPCInteractable : MonoBehaviour, IInteractable
-{
-    [SerializeField] private string interactText;
 
-    public void Interact()
+//can use the below to pretty much formulate any kind of interactable thing now...YIPPEEEEEE!!!!
+
+public class CubeInteractable : MonoBehaviour, IInteractable
+{
+    public void CubeDoThing()
     {
-        Debug.Log("Interact!");
+        Debug.Log("Cube touched");
     }
 
     public string GetInteractText()
     {
-        return interactText;
+        return "Touch cube";
     }
 
     public void Interact(Transform interactorTransform)
     {
-        Interact();
+        CubeDoThing();
     }
 }

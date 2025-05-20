@@ -27092,7 +27092,6 @@ GameObject:
   - component: {fileID: 1110659092}
   - component: {fileID: 1110659091}
   - component: {fileID: 1110659090}
-  - component: {fileID: 1110659093}
   m_Layer: 7
   m_Name: TestBlock
   m_TagString: Untagged
@@ -27189,19 +27188,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110659088}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1110659093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110659088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11b7aa16a52549d44b452f99bd008403, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prompt: Start Scenario
 --- !u!1 &1130177101
 GameObject:
   m_ObjectHideFlags: 0
@@ -40645,7 +40631,6 @@ GameObject:
   - component: {fileID: 1625603320}
   - component: {fileID: 1625603319}
   - component: {fileID: 1625603318}
-  - component: {fileID: 1625603317}
   m_Layer: 7
   m_Name: TestBlock (1)
   m_TagString: Untagged
@@ -40668,19 +40653,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1772525445}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1625603317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625603315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11b7aa16a52549d44b452f99bd008403, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prompt: Start Scenario
 --- !u!65 &1625603318
 BoxCollider:
   m_ObjectHideFlags: 0
