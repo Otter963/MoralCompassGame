@@ -11,9 +11,17 @@ Availability: https://www.youtube.com/watch?v=LdoImzaY6M4
 public class NPCInteractable : MonoBehaviour, IInteractable
 {
     [SerializeField] private string interactText;
+    [SerializeField] private GameObject npcText;
+    [SerializeField] private GameObject npcCheckCollider;
+    [SerializeField] private GameObject npcCheckCanvas;
+    public bool npcTalkActive = false;
 
     public void Interact()
     {
+        npcText.SetActive(true);
+        npcTalkActive = true;
+        npcCheckCollider.SetActive(false);
+        npcCheckCanvas.SetActive(false);
         Debug.Log("Interact!");
     }
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 /*Reference:
 Title:  How to Talk to NPCs! (or Interact with any Object, Open Doors, Push Buttons, Unity Tutorial) 
 Author: Code Monkey
@@ -13,8 +14,12 @@ Availability: https://www.youtube.com/watch?v=LdoImzaY6M4
 
 public class CubeInteractable : MonoBehaviour, IInteractable
 {
+
+    [SerializeField] private GameObject cubeTouchText;
+
     public void CubeDoThing()
     {
+        cubeTouchText.SetActive(true);
         Debug.Log("Cube touched");
     }
 
