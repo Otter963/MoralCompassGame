@@ -30,6 +30,8 @@ public class CubeInteractable : MonoBehaviour, IInteractable
 
     public void Interact(Transform interactorTransform)
     {
+        //the below gets put into the interact for every interaction script thing or even collisions
+        FindFirstObjectByType<AudioManager>().Play("CubeTouch");
         CubeDoThing();
     }
 }

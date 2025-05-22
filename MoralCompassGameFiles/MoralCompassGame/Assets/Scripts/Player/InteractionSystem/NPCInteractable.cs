@@ -32,6 +32,7 @@ public class NPCInteractable : MonoBehaviour, IInteractable
 
     public void Interact(Transform interactorTransform)
     {
+        FindFirstObjectByType<AudioManager>().Play("NPCInteraction");
         Interact();
     }
 }

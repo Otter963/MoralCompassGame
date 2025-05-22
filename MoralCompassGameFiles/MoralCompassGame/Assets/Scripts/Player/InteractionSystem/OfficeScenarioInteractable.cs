@@ -32,6 +32,7 @@ public class OfficeScenarioInteractable : MonoBehaviour, IInteractable
 
     public void Interact(Transform interactorTransform)
     {
+        FindFirstObjectByType<AudioManager>().Play("OfficeScenario");
         StartOfficeScenario();
     }
 }

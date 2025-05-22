@@ -10,6 +10,7 @@ public class ShiftTextScript : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            FindFirstObjectByType<AudioManager>().Play("ShiftKey");
             wasdCanvas.SetActive(false);
             shiftCanvas.SetActive(true);
         }

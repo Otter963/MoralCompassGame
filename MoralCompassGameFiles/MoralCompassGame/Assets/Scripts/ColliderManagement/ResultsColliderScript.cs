@@ -12,6 +12,7 @@ public class ResultsColliderScript : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("ResultsScreenStart");
+            FindFirstObjectByType<AudioManager>().Play("ResultsScreen");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             resultsCanvasStart.SetActive(true);

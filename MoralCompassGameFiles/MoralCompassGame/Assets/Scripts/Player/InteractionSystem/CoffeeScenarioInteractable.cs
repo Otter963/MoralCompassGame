@@ -31,6 +31,7 @@ public class CoffeeScenarioInteractable : MonoBehaviour, IInteractable
 
     public void Interact(Transform interactorTransform)
     {
+        FindFirstObjectByType<AudioManager>().Play("CoffeeScenario");
         StartOfficeScenario();
     }
 }
