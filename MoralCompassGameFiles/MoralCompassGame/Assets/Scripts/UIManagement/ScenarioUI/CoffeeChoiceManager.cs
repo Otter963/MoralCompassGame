@@ -18,6 +18,12 @@ public class CoffeeChoiceManager : MonoBehaviour
     //to disable so player can't redo their choice
     [SerializeField] private GameObject coffeeScenarioInteractBox;
 
+    [SerializeField] private GameObject resultsCollider;
+
+    public bool coffeeChoiceOne = false;
+    public bool coffeeChoiceTwo = false;
+    public bool coffeeChoiceThree = false;
+
     //bad choice
     public void ChoiceOne()
     {
@@ -35,6 +41,9 @@ public class CoffeeChoiceManager : MonoBehaviour
         Cursor.visible = false;
         coffeeScenarioInteractable.coffeeScenarioActive = false;
         coffeeScenarioInteractBox.SetActive(false);
+        resultsCollider.SetActive(true);
+
+        coffeeChoiceOne = true;
     }
 
     //good choice
@@ -54,6 +63,9 @@ public class CoffeeChoiceManager : MonoBehaviour
         Cursor.visible = false;
         coffeeScenarioInteractable.coffeeScenarioActive = false;
         coffeeScenarioInteractBox.SetActive(false);
+        resultsCollider.SetActive(true);
+
+        coffeeChoiceTwo = true;
     }
 
     //middle choice
@@ -73,5 +85,8 @@ public class CoffeeChoiceManager : MonoBehaviour
         Cursor.visible = false;
         coffeeScenarioInteractable.coffeeScenarioActive = false;
         coffeeScenarioInteractBox.SetActive(false);
+        resultsCollider.SetActive(true);
+
+        coffeeChoiceThree = true;
     }
 }

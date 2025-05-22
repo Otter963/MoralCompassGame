@@ -26,6 +26,10 @@ public class OfficeChoiceManager : MonoBehaviour
     [SerializeField] private GameObject middleChoiceDoor;
     [SerializeField] private GameObject goodChoiceDoor;
 
+    public bool officeChoiceOne = false;
+    public bool officeChoiceTwo = false;
+    public bool officeChoiceThree = false;
+
     //bad choice
     public void ChoiceOne()
     {
@@ -45,6 +49,7 @@ public class OfficeChoiceManager : MonoBehaviour
         officeScenarioInteractBox.SetActive(false);
 
         badChoiceDoor.SetActive(false);
+        officeChoiceOne = true;
     }
 
     //middle choice
@@ -66,6 +71,8 @@ public class OfficeChoiceManager : MonoBehaviour
         officeScenarioInteractBox.SetActive(false);
 
         middleChoiceDoor.SetActive(false);
+
+        officeChoiceTwo = true;
     }
 
     //good choice
@@ -87,5 +94,7 @@ public class OfficeChoiceManager : MonoBehaviour
         officeScenarioInteractBox.SetActive(false);
 
         goodChoiceDoor.SetActive(false);
+
+        officeChoiceThree = true;
     }
 }

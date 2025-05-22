@@ -12,7 +12,6 @@ Availability: https://www.youtube.com/watch?v=oETf6hmH4ug
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject optionsMenu;
 
     private void Start()
     {
@@ -22,7 +21,6 @@ public class MainMenuManager : MonoBehaviour
     public void ActivateMainMenu(bool state)
     {
         mainMenu.SetActive(state);
-        optionsMenu.SetActive(!state);
     }
 
     public void PlayGame()
